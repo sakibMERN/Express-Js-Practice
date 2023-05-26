@@ -2,14 +2,29 @@ const path= require('path');
 const express = require('express');
 const helmet = require('helmet');
 const app= express();
+const router = require("./router");
+const proRouter = require("./proRouter")
 
 //Middleware Section
 app.use(express.static('Public'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
+
 //Port
 const port= 8000;
+
+
+//=======>>>> Router
+
+app.use("/",router);
+app.use("/product",proRouter);
+
+
+app.listen(port,()=>{
+    console.log(`Server run success at ${port}`);
+});
+
 
 
 
@@ -76,7 +91,7 @@ const port= 8000;
 // Class-3==== Middleware + JSON + URLincoded=====>>>>>
 
 // Middleware====
-
+/*
 function validateUser(req,res,next){
     res.locals.validated = true;
     console.log("1","Validated run");
@@ -95,11 +110,10 @@ app.get("/admin",(req,res,next)=>{
     res.send("<h1>Admin Page.</h1>");
     console.log("3",res.locals.validated);
 })
-
-
+*/
 
 //JSON====
-
+/*
 app.get("/cookie",(req,res)=>{
     // res.cookie("country","Bangladesh");
     // res.cookie("age","29");
@@ -115,4 +129,4 @@ app.get("/json",(req,res)=>{
 app.listen(port,()=>{
     console.log(`Server run success at ${port}`);
 });
-
+*/
