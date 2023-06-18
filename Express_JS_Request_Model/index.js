@@ -290,10 +290,11 @@ app.post('/', function(req,res){
             res.send("File upload fail");
         }
         else{
-            res.send("File upload success")
+            res.send("File upload success") 
         }
     });
 });
+
 
 app.listen(5050,()=>{
     console.log('Server run success');
